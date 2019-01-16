@@ -25,12 +25,12 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div class="card card-body mb-2 mr-1 col-md-3" v-for="article in articles" v-bind:key="article.id">
-                    <div style="height: 300px;">
+                <div class="card card-body mb-2" v-for="article in articles" v-bind:key="article.id">
+                   
                       <h3>{{ article.title }}</h3>
                     <p>{{ article.body }}</p>
                     
-                    </div><hr>
+                    <hr>
                     <button @click="editArticle(article); setFocus();" class="btn btn-warning mb-2">Edit</button>
                     <button @click="deleteArticle(article.id)" class="btn btn-danger">Delete</button>
                 </div>
