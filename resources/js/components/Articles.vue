@@ -70,11 +70,15 @@
                     .catch(err => console.log(err));
             },
             makePagination(meta, links) {
+                next = links.next;
+                next = next.replace(/^http:\/\//i, 'https://');
+                prev = links.rev;
+                prev = prev.replace(/^http:\/\//i, 'https://');
                 let pagination = {
                     current_page: meta.current_page,
                     last_page: meta.last_page,
-                    next_page_url: links.next,
-                    prev_page_url: links.prev
+                    next_page_url: next,
+                    prev_page_url: prev
                 };
                 this.pagination = pagination;
             },
