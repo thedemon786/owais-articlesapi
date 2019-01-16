@@ -25,11 +25,11 @@
         </nav>
         <div class="container">
             <div class="row">
-                <div class="card card-body mb-2" v-for="article in articles" v-bind:key="article.id">
-                   
-                      <h3>{{ article.title }}</h3>
+                <div class="card card-body mb-2 col-md-12" v-for="article in articles" v-bind:key="article.id">
+
+                    <h3>{{ article.title }}</h3>
                     <p>{{ article.body }}</p>
-                    
+
                     <hr>
                     <button @click="editArticle(article); setFocus();" class="btn btn-warning mb-2">Edit</button>
                     <button @click="deleteArticle(article.id)" class="btn btn-danger">Delete</button>
@@ -70,15 +70,11 @@
                     .catch(err => console.log(err));
             },
             makePagination(meta, links) {
-                next = links.next;
-                next = next.replace(/^http:\/\//i, 'https://');
-                prev = links.rev;
-                prev = prev.replace(/^http:\/\//i, 'https://');
                 let pagination = {
                     current_page: meta.current_page,
                     last_page: meta.last_page,
-                    next_page_url: next,
-                    prev_page_url: prev
+                    next_page_url: links.next,
+                    prev_page_url: links.prev
                 };
                 this.pagination = pagination;
             },
