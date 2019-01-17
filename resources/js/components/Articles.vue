@@ -70,15 +70,12 @@
                     .catch(err => console.log(err));
             },
             makePagination(meta, links) {
-                let url = links.next;
-                if(url.match('^http://')){
-     url = url.replace("http://","https://")
-}
+               
                
                 let pagination = {
                     current_page: meta.current_page,
                     last_page: meta.last_page,
-                    next_page_url: url,
+                    next_page_url: links.next.replace("http://","https://"),
                     prev_page_url: links.prev
                 };
                 this.pagination = pagination;
