@@ -73,6 +73,7 @@
                 let pagination = {
                     current_page: meta.current_page,
                     last_page: meta.last_page,
+                    curr_page_url: links.first.replace("1","meta.current_page"),
                     next_page_url: (links.next == null) ? null : links.next.replace("http://","https://"),
                     prev_page_url: (links.prev == null) ? null : links.prev.replace("http://","https://")
                 };
@@ -121,9 +122,8 @@
                         .then(data => {
                             this.clearForm();
                             this.edit = false;
-                            let cur_link = links.first.replace("1","meta.current_page");
                             alert('Article Updated');
-                            this.fetchArticles(cur_link);
+                            this.fetchArticles(pagination.cur_page_url);
                         })
                         .catch(err => console.log(err));
                 }
