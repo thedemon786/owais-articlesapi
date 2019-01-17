@@ -73,7 +73,7 @@
                 let pagination = {
                     current_page: meta.current_page,
                     last_page: meta.last_page,
-                    // curr_page_url: links.first.replace("1","meta.current_page"),
+                    curr_page_url: links.first.replace("1","meta.current_page"),
                     next_page_url: (links.next == null) ? null : links.next.replace("http://","https://"),
                     prev_page_url: (links.prev == null) ? null : links.prev.replace("http://","https://")
                 };
@@ -119,12 +119,12 @@
                             }
                         })
                         .then(res => res.json())
-                        .then((res,data) => {
+                        .then(data => {
                             this.clearForm();
                             this.edit = false;
                             alert('Article Updated');
-                            let cur_url = res.links.first.replace("1","res.meta.current_page");
-                            this.fetchArticles(cur_url);
+                            // let cur_url = res.links.first.replace("1","res.meta.current_page");
+                            this.fetchArticles(this.pagination.curr_page_url);
                         })
                         .catch(err => console.log(err));
                 }
