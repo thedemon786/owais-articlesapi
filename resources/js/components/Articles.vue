@@ -10,7 +10,7 @@
             </div>
             <button type="submit" class="btn btn-success btn-block">Save</button>
         </form>
-        <button @click="clearForm()" class="btn btn-info btn-block">Cancel</button>
+        <button @click="clearForm()" class="btn btn-info btn-block mb-2">Cancel</button>
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li v-bind:class="[{disabled: !pagination.prev_page_url}]" class="page-item"><a class="page-link" href="#"
@@ -70,6 +70,7 @@
                     .catch(err => console.log(err));
             },
             makePagination(meta, links) {
+                links.next = "https" + links.next.slice(6);
                 let pagination = {
                     current_page: meta.current_page,
                     last_page: meta.last_page,
