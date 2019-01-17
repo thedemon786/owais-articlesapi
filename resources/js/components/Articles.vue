@@ -122,7 +122,7 @@
                         .then(data => {
                             this.clearForm();
                             this.edit = false;
-                            cur_page_url= this.pagination.curr_page_url.replace("http://","https://");
+                            let cur_page_url= this.pagination.curr_page_url.replace("http://","https://");
                             alert('Article Updated');
                             // let cur_url = res.links.first.replace("1","res.meta.current_page");
                             this.fetchArticles(cur_page_url);
