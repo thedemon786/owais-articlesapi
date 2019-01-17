@@ -121,8 +121,9 @@
                         .then(data => {
                             this.clearForm();
                             this.edit = false;
+                            let cur_link = links.first.replace("1","meta.current_page");
                             alert('Article Updated');
-                            this.fetchArticles();
+                            this.fetchArticles(cur_link);
                         })
                         .catch(err => console.log(err));
                 }
