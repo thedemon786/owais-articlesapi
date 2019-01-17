@@ -119,7 +119,7 @@
                             }
                         })
                         .then(res => res.json())
-                        .then(data => {
+                        .then((res,data) => {
                             this.clearForm();
                             this.edit = false;
                             alert('Article Updated');
