@@ -70,12 +70,10 @@
                     .catch(err => console.log(err));
             },
             makePagination(meta, links) {
-               
-               
                 let pagination = {
                     current_page: meta.current_page,
                     last_page: meta.last_page,
-                    next_page_url: links.next.replace("http://","https://"),
+                    next_page_url: (links.next == null) ? null : links.next.replace("http://","https://"),
                     prev_page_url: (links.prev == null) ? null : links.prev.replace("http://","https://")
                 };
                 this.pagination = pagination;
